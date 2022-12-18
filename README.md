@@ -10,7 +10,7 @@ Creator of universe in Chinese mythology
 - git
 - python3
 
-- GLFW 3.3.6
+- [GLFW 3.3.6](https://github.com/glfw/glfw)
 - GLM
 - STB
 - Dear ImGui

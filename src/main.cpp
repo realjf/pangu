@@ -76,9 +76,8 @@ int main() {
     glUseProgram(program);
 
     GLuint vao;
-    glEnableVertexAttribArray(vao);
+    glGenVertexArrays(1, &vao);
     glBindVertexArray(vao);
-
     glClearColor(1.0f, 1.0f, 1.0f, 1.0f);
 
     while (!glfwWindowShouldClose(window)) {
@@ -86,6 +85,7 @@ int main() {
         glfwGetFramebufferSize(window, &width, &height);
         glViewport(0, 0, width, height);
         glClear(GL_COLOR_BUFFER_BIT);
+
         glDrawArrays(GL_TRIANGLES, 0, 3);
         glfwSwapBuffers(window);
         glfwPollEvents();
