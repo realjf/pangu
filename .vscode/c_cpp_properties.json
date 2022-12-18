@@ -1,0 +1,19 @@
+{
+    "configurations": [
+        {
+            "name": "Linux",
+            "includePath": [
+                "${default}",
+                "${workspaceFolder}/deps/GLFW/include",
+                "${workspaceFolder}/src",
+                "${workspaceFolder}/deps/GLFW/deps"
+            ],
+            "defines": [ ],
+            "compilerPath": "/usr/bin/g++",
+            "cStandard": "c17",
+            "cppStandard": "c++20",
+            "intelliSenseMode": "linux-g++-x64"
+        }
+    ],
+    "version": 4
+}
