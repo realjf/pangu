@@ -18,11 +18,10 @@ include(cmake/common.cmake)
 include(cmake/common_macros.cmake)
 include(cmake/glfw.cmake)
 include(cmake/glad.cmake)
-
 include(cmake/glm.cmake)
 
 include_directories(deps/GLFW/include)
-include_directories(deps/GLFW/deps)
+include_directories(deps/glad/include)
 include_directories(deps/GLM)
 
 # include_directories(deps/assimp/include)
@@ -33,5 +32,5 @@ set(CMAKE_CXX_FLAGS "-Wno-volatile")
 SETUP_APP(${PROJECT_NAME} ${PANGU_VERSION})
 
 # target_link_directories(${PROJECT_NAME} ${LIBRARY_OUTPUT_PATH})
-target_link_libraries(${PROJECT_NAME} glad glfw)
+target_link_libraries(${PROJECT_NAME} glad glfw glm)
 

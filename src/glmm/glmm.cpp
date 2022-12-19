@@ -4,7 +4,7 @@ static const char* shaderCodeVertex = R"(
 #version 460 core
 layout(std140, binding = 0) uniform PerFrameData
 {
-	uniform mat4 mvp;
+	uniform mat4 MVP;
 	uniform int isWireframe;
 };
 layout (location=0) out vec3 color;
@@ -45,7 +45,7 @@ const int indices[36] = int[36](
 void main()
 {
 	int idx = indices[gl_VertexID];
-	gl_Position = mvp * vec4(pos[idx], 1.0);
+	gl_Position = MVP * vec4(pos[idx], 1.0);
 	color = isWireframe > 0 ? vec3(0.0) : col[idx];
 }
 )";
@@ -78,7 +78,7 @@ int showglm() {
     glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 6);
     glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE);
 
-    GLFWwindow* window = glfwCreateWindow(1024, 768, "Simple example", nullptr, nullptr);
+    GLFWwindow* window = glfwCreateWindow(1920, 980, "pangu", nullptr, nullptr);
     if (!window) {
         glfwTerminate();
         exit(EXIT_FAILURE);
@@ -92,7 +92,10 @@ int showglm() {
         });
 
     glfwMakeContextCurrent(window);
-    gladLoadGL(glfwGetProcAddress);
+    if (!gladLoadGLLoader((GLADloadproc)glfwGetProcAddress)) {
+        std::cout << "Failed to initialize GLAD" << std::endl;
+        exit(EXIT_FAILURE);
+    }
     glfwSwapInterval(1);
 
     const GLuint shaderVertex = glCreateShader(GL_VERTEX_SHADER);
@@ -109,16 +112,12 @@ int showglm() {
     glLinkProgram(program);
     glUseProgram(program);
 
-    GLuint vao;
-    glGenVertexArrays(1, &vao);
-    glBindVertexArray(vao);
-
     const GLsizeiptr kBufferSize = sizeof(PerFrameData);
 
     GLuint perFrameDataBuffer;
-    glGenBuffers(1, &perFrameDataBuffer);
+    glCreateBuffers(1, &perFrameDataBuffer);
 
-    glBufferData(GL_UNIFORM_BUFFER, kBufferSize, &perFrameDataBuffer, GL_DYNAMIC_DRAW);
+    glNamedBufferStorage(perFrameDataBuffer, kBufferSize, nullptr, GL_DYNAMIC_STORAGE_BIT);
     glBindBufferRange(GL_UNIFORM_BUFFER, 0, perFrameDataBuffer, 0, kBufferSize);
 
     glClearColor(1.0f, 1.0f, 1.0f, 1.0f);
@@ -135,17 +134,17 @@ int showglm() {
         glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
         const mat4 m = glm::rotate(glm::translate(mat4(1.0f), vec3(0.0f, 0.0f, -3.5f)), (float)glfwGetTime(), vec3(1.0f, 1.0f, 1.0f));
-        const mat4 p = glm::perspective(45.0f, ratio, 0.1f, 1000.0f);
+        const mat4 p = glm::perspective(45.0f, ratio, 0.1f, 1.0f);
 
         PerFrameData perFrameData = {.mvp = p * m, .isWireframe = false};
 
-        glBufferSubData(perFrameDataBuffer, 0, kBufferSize, &perFrameData);
+        glNamedBufferSubData(perFrameDataBuffer, 0, kBufferSize, &perFrameData);
 
         glPolygonMode(GL_FRONT_AND_BACK, GL_FILL);
         glDrawArrays(GL_TRIANGLES, 0, 36);
 
         perFrameData.isWireframe = true;
-        glBufferSubData(perFrameDataBuffer, 0, kBufferSize, &perFrameData);
+        glNamedBufferSubData(perFrameDataBuffer, 0, kBufferSize, &perFrameData);
 
         glPolygonMode(GL_FRONT_AND_BACK, GL_LINE);
         glDrawArrays(GL_TRIANGLES, 0, 36);
@@ -158,7 +157,6 @@ int showglm() {
     glDeleteProgram(program);
     glDeleteShader(shaderFragment);
     glDeleteShader(shaderVertex);
-    glDeleteVertexArrays(1, &vao);
 
     glfwDestroyWindow(window);
     glfwTerminate();
