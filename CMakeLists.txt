@@ -1,4 +1,4 @@
-cmake_minimum_required(VERSION 3.2)
+cmake_minimum_required(VERSION 3.12)
 
 set(PROJECT_NAME pangu)
 set(PANGU_MAJOR_VERSION 0)
@@ -23,6 +23,7 @@ include(cmake/glm.cmake)
 include_directories(deps/GLFW/include)
 include_directories(deps/glad/include)
 include_directories(deps/GLM)
+include_directories(deps/stb)
 
 # include_directories(deps/assimp/include)
 # include_directories(deps/etc2comp/EtcLib/Etc)

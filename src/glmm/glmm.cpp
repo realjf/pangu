@@ -92,8 +92,11 @@ int showglm() {
         });
 
     glfwMakeContextCurrent(window);
-    if (!gladLoadGLLoader((GLADloadproc)glfwGetProcAddress)) {
-        std::cout << "Failed to initialize GLAD" << std::endl;
+    // if (!gladLoadGLLoader((GLADloadproc)glfwGetProcAddress)) {
+    //     std::cout << "Failed to initialize GLAD" << std::endl;
+    //     exit(EXIT_FAILURE);
+    // }
+    if (!gladLoadGL()) {
         exit(EXIT_FAILURE);
     }
     glfwSwapInterval(1);
@@ -115,7 +118,7 @@ int showglm() {
     const GLsizeiptr kBufferSize = sizeof(PerFrameData);
 
     GLuint perFrameDataBuffer;
-    glCreateBuffers(1, &perFrameDataBuffer);
+    glGenBuffers(1, &perFrameDataBuffer);
 
     glNamedBufferStorage(perFrameDataBuffer, kBufferSize, nullptr, GL_DYNAMIC_STORAGE_BIT);
     glBindBufferRange(GL_UNIFORM_BUFFER, 0, perFrameDataBuffer, 0, kBufferSize);
