@@ -78,7 +78,7 @@ int showglm() {
     glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 6);
     glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE);
 
-    GLFWwindow* window = glfwCreateWindow(1920, 980, "pangu", nullptr, nullptr);
+    GLFWwindow* window = glfwCreateWindow(1024, 768, "pangu", nullptr, nullptr);
     if (!window) {
         glfwTerminate();
         exit(EXIT_FAILURE);
@@ -128,13 +128,15 @@ int showglm() {
     while (!glfwWindowShouldClose(window)) {
         int width, height;
         glfwGetFramebufferSize(window, &width, &height);
-        const float ratio = width / (float)height;
+        const float ratio = (float)width / (float)height;
 
         glViewport(0, 0, width, height);
+        glClearColor(0.2f, 0.3f, 0.3f, 1.0f);
         glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
-        const mat4 m = glm::rotate(glm::translate(mat4(1.0f), vec3(0.0f, 0.0f, -3.5f)), (float)glfwGetTime(), vec3(1.0f, 1.0f, 1.0f));
-        const mat4 p = glm::perspective(45.0f, ratio, 0.1f, 1.0f);
+        float angle = (float)glfwGetTime();
+        const mat4 m = glm::rotate(glm::translate(mat4(1.0f), vec3(0.0f, 0.0f, -1.5f)), glm::radians(angle), vec3(1.0f, 0.3f, 0.5f));
+        const mat4 p = glm::perspective(glm::radians(45.0f), ratio, 0.1f, 100.0f);
 
         PerFrameData perFrameData = {.mvp = p * m, .isWireframe = false};
 
