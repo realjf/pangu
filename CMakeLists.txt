@@ -19,15 +19,16 @@ include(cmake/common_macros.cmake)
 include(cmake/glfw.cmake)
 include(cmake/glad.cmake)
 
-# include(cmake/glm.cmake)
+include(cmake/glm.cmake)
 
 include_directories(deps/GLFW/include)
 include_directories(deps/GLFW/deps)
-# include_directories(deps/GLM)
+include_directories(deps/GLM)
+
 # include_directories(deps/assimp/include)
 # include_directories(deps/etc2comp/EtcLib/Etc)
 # include_directories(deps/etc2comp/EtcLib/EtcCodec)
-
+set(CMAKE_CXX_FLAGS "-Wno-volatile")
 
 SETUP_APP(${PROJECT_NAME} ${PANGU_VERSION})
 

@@ -3,6 +3,6 @@
 
 #define GLFW_INCLUDE_NONE
 #include <vertex/vertex.hpp>
-// #include <glmm/glmm.hpp>
+#include <glmm/glmm.hpp>
 
 #endif /* _MAIN_HPP_ */

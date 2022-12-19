@@ -27,7 +27,7 @@ Creator of universe in Chinese mythology
 - mingw64
 
 **`linux`**
-- gcc
+- gcc 8+
 
 ```sh
 sudo apt-get install build-essential cmake git python3.7
@@ -41,7 +41,12 @@ sudo apt-get install build-essential cmake git python3.7
 ### Troubleshouting
 `Error: GLX: Failed to create context: GLXBadFBConfig`
 ```sh
-# upgrade opengl driver version
+# you can run:
+glxinfo | grep 'version'
+# make sure the opengl version is 4.6.0 or greater
+
+
+# if not, upgrade opengl driver version
 https://developer.nvidia.com/opengl-driver
 # or
 sudo apt-get remove --purge nvidia*
