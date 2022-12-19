@@ -11,7 +11,7 @@ Creator of universe in Chinese mythology
 - python3
 
 - [GLFW 3.3.6](https://github.com/glfw/glfw)
-- GLM
+- [GLM 0.9.9.8](https://github.com/g-truc/glm)
 - STB
 - Dear ImGui
 - EasyProfiler
@@ -29,7 +29,32 @@ Creator of universe in Chinese mythology
 **`linux`**
 - gcc
 
+```sh
+sudo apt-get install build-essential cmake git python3.7
+```
+
 
 **`macOS`**
 
 
+
+### Troubleshouting
+`Error: GLX: Failed to create context: GLXBadFBConfig`
+```sh
+# upgrade opengl driver version
+https://developer.nvidia.com/opengl-driver
+# or
+sudo apt-get remove --purge nvidia*
+sudo apt -y install linux-headers-$(uname -r) build-essential libglvnd-dev pkg-config
+sudo vim /etc/modprobe.d/blacklist.conf
+# add the following lines to the file
+blacklist nouveau
+options nouveau modeset=0
+
+sudo update-initramfs -u
+systemctl set-default multi-user.target
+systemctl reboot
+bash [driver file name]
+systemctl set-default graphical.target
+systemctl reboot
+```

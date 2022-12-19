@@ -4,3 +4,5 @@ if(WIN32)
 endif()
 
 add_library(glad ${GLAD_SOURCES})
+
+set_property(TARGET glad PROPERTY FOLDER "ThirdPartyLibraries")

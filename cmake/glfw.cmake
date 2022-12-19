@@ -4,3 +4,5 @@ set(GLFW_BUILD_DOCS OFF CACHE BOOL "")
 set(GLFW_INSTALL OFF CACHE BOOL "")
 
 add_subdirectory(deps/GLFW)
+
+set_property(TARGET glfw PROPERTY FOLDER "ThirdPartyLibraries")

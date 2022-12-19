@@ -5,8 +5,9 @@
             "includePath": [
                 "${default}",
                 "${workspaceFolder}/deps/GLFW/include",
-                "${workspaceFolder}/src",
-                "${workspaceFolder}/deps/GLFW/deps"
+                "${workspaceFolder}/src/**",
+                "${workspaceFolder}/deps/GLFW/deps",
+                "${workspaceFolder}/deps/GLM"
             ],
             "defines": [ ],
             "compilerPath": "/usr/bin/g++",
