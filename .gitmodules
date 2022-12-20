@@ -18,3 +18,8 @@
 	url = https://github.com/ocornut/imgui.git
 	update = checkout
 	branch = v1.89.1
+[submodule "deps/optick"]
+	path = deps/optick
+	url = https://github.com/bombomby/optick.git
+	update = checkout
+	branch = 1.4.0.0
