@@ -6,5 +6,6 @@
 #include <glmm/glmm.hpp>
 #include <stbb/stbb.hpp>
 #include <imguii/imguii.hpp>
+#include <easyprofiler/easyprofiler.hpp>
 
 #endif /* _MAIN_HPP_ */

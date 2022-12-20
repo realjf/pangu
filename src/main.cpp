@@ -4,5 +4,6 @@ int main() {
     // show();
     // showglm();
     // showstb();
-    showgui();
+    // showgui();
+    showeasypro();
 }

@@ -9,4 +9,8 @@ if(BUILD_WITH_EASY_PROFILER)
     set_property(TARGET profiler_converter PROPERTY FOLDER "ThirdPartyLibraries")
 endif()
 
+add_definitions(-DBUILD_WITH_EASY_PROFILER=1)
+
 add_subdirectory(deps/easyprofiler)
+
+target_link_libraries(${PROJECT_NAME} easy_profiler)

@@ -14,7 +14,7 @@ Creator of universe in Chinese mythology
 - [GLM 0.9.9.8](https://github.com/g-truc/glm)
 - STB
 - [Dear ImGui v1.89.1](https://github.com/ocornut/imgui)
-- EasyProfiler
+- [EasyProfiler v2.1.0](https://github.com/yse/easy_profiler)
 - Optick
 - Assimp
 - Etc2Comp
