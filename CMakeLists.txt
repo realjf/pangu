@@ -19,12 +19,14 @@ include(cmake/common_macros.cmake)
 include(cmake/glfw.cmake)
 include(cmake/glad.cmake)
 include(cmake/glm.cmake)
+include(cmake/imgui.cmake)
 
 
 include_directories(deps)
 include_directories(deps/GLFW/include)
 include_directories(deps/glad/include)
 include_directories(deps/GLM)
+include_directories(deps/imgui)
 
 
 # include_directories(deps/assimp/include)

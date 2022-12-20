@@ -53,7 +53,7 @@ void showstb() {
     glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 6);
     glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE);
 
-    GLFWwindow* window = glfwCreateWindow(1024, 768, "Simple example", nullptr, nullptr);
+    GLFWwindow* window = glfwCreateWindow(1024, 768, "pangu", nullptr, nullptr);
     if (!window) {
         glfwTerminate();
         exit(EXIT_FAILURE);

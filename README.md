@@ -13,7 +13,7 @@ Creator of universe in Chinese mythology
 - [GLFW 3.3.6](https://github.com/glfw/glfw)
 - [GLM 0.9.9.8](https://github.com/g-truc/glm)
 - STB
-- Dear ImGui
+- [Dear ImGui v1.89.1](https://github.com/ocornut/imgui)
 - EasyProfiler
 - Optick
 - Assimp

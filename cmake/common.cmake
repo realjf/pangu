@@ -2,6 +2,8 @@ option(BUILD_WITH_EASY_PROFILER "Enable EasyProfiler usage" ON)
 option(BUILD_WITH_OPTICK "Enable Optick usage" OFF)
 
 set_property(GLOBAL PROPERTY USE_FOLDERS ON)
+set(DEPS_SRC_FILES "")
+set(DEPS_HEADER_FILES "")
 
 if(WIN32)
     set(PYTHON_EXECUTABLE "python")

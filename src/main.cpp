@@ -1,5 +1,8 @@
 #include <main.hpp>
 
 int main() {
-    showstb();
+    // show();
+    // showglm();
+    // showstb();
+    showgui();
 }

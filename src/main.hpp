@@ -5,5 +5,6 @@
 #include <vertex/vertex.hpp>
 #include <glmm/glmm.hpp>
 #include <stbb/stbb.hpp>
+#include <imguii/imguii.hpp>
 
 #endif /* _MAIN_HPP_ */
