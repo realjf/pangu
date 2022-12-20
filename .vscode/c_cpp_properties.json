@@ -10,7 +10,8 @@
                 "${workspaceFolder}/deps/GLM",
                 "${workspaceFolder}/deps",
                 "${workspaceFolder}/deps/imgui",
-                "${workspaceFolder}/deps/easy_profiler/include"
+                "${workspaceFolder}/deps/easy_profiler/include",
+                "${workspaceFolder}/deps/optick/src"
             ],
             "defines": [ ],
             "compilerPath": "/usr/bin/gcc",

@@ -7,5 +7,6 @@
 #include <stbb/stbb.hpp>
 #include <imguii/imguii.hpp>
 #include <easyprofiler/easyprofiler.hpp>
+#include <optickk/optickk.hpp>
 
 #endif /* _MAIN_HPP_ */

@@ -6,4 +6,5 @@ int main() {
     // showstb();
     // showgui();
     // showeasypro();
+    showoptick();
 }

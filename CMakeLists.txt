@@ -25,6 +25,9 @@ include(cmake/glad.cmake)
 include(cmake/glm.cmake)
 include(cmake/imgui.cmake)
 include(cmake/easy_profiler.cmake)
+if (BUILD_WITH_OPTICK)
+    include(cmake/optick.cmake)
+endif()
 
 
 include_directories(deps)
@@ -33,7 +36,8 @@ include_directories(deps/glad/include)
 include_directories(deps/GLM)
 include_directories(deps/imgui)
 include_directories(deps/easy_profiler/include)
-# include_directories(deps/easy_sources/easy_profile_core/include)
+include_directories(deps/optick/src)
+
 
 # include_directories(deps/assimp/include)
 # include_directories(deps/etc2comp/EtcLib/Etc)
@@ -45,5 +49,5 @@ set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wno-volatile")
 SETUP_APP(${PROJECT_NAME} ${PANGU_VERSION})
 
 # target_link_directories(${PROJECT_NAME} ${LIBRARY_OUTPUT_PATH})
-target_link_libraries(${PROJECT_NAME} glad glfw glm easy_profiler)
+target_link_libraries(${PROJECT_NAME} glad glfw glm easy_profiler OptickCore)
 
