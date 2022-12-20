@@ -1,12 +1,20 @@
 [submodule "deps/GLFW"]
 	path = deps/GLFW
 	url = https://github.com/glfw/glfw.git
+	update = checkout
+	branch = 3.3.8
 [submodule "deps/GLM"]
 	path = deps/GLM
 	url = https://github.com/g-truc/glm.git
+	update = checkout
+	branch = 0.9.9.8
 [submodule "deps/stb"]
 	path = deps/stb
 	url = https://github.com/nothings/stb.git
+	update = checkout
+	branch = master
 [submodule "deps/imgui"]
 	path = deps/imgui
 	url = https://github.com/ocornut/imgui.git
+	update = checkout
+	branch = v1.89.1
