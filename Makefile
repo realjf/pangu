@@ -33,7 +33,7 @@ ifeq (${PLAT},WINDOWS)
 	@cd build && cmake .. -G "Visual Studio 16 2019" -A x64
 endif
 ifeq (${PLAT},LINUX)
-	@cd build && cmake .. -G "Unix Makefiles"
+	@cd build && cmake .. -G "Unix Makefiles" -D CMAKE_C_COMPILER=gcc-11 -D CMAKE_CXX_COMPILER=g++-11
 endif
 ifeq (${PLAT},MACOS)
 	@cd build && cmake .. -G "Unix Makefiles"

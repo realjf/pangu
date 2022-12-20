@@ -40,8 +40,8 @@ The Apache License, Version 2.0 (the "License");
 
 **/
 
-#ifndef EASY_PROFILER_H
-#define EASY_PROFILER_H
+#ifndef _PROFILER_H_
+#define _PROFILER_H_
 
 #include <easy/details/profiler_public_types.h>
 
@@ -898,4 +898,4 @@ namespace profiler {
 #pragma clang diagnostic pop
 #endif
 
-#endif  // EASY_PROFILER_H
+#endif /* _PROFILER_H_ */

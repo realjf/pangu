@@ -64,10 +64,11 @@ struct PerFrameData {
     mat4 mvp;
     int isWireframe;
 };
-EASY_MAIN_THREAD;
-EASY_PROFILER_ENABLE;
 
 void showeasypro() {
+    EASY_MAIN_THREAD;
+    EASY_PROFILER_ENABLE;
+
     glfwSetErrorCallback(
         [](int error, const char* description) {
             fprintf(stderr, "Error: %s\n", description);
@@ -133,6 +134,7 @@ void showeasypro() {
         glEnable(GL_DEPTH_TEST);
         glEnable(GL_POLYGON_OFFSET_LINE);
         glPolygonOffset(-1.0f, -1.0f);
+        EASY_END_BLOCK;
     }
 
     while (!glfwWindowShouldClose(window)) {

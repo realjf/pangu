@@ -16,5 +16,5 @@
 # list(APPEND DEPS_HEADER_FILES ${IMGUI_HEADER_FILES})
 
 if (WIN32)
-    list(APPEND CMAKE_CXX_FLAGS "-limm32 -lglu32 -lgdi32 -lshell32")
+    set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -limm32 -lglu32 -lgdi32 -lshell32")
 endif()

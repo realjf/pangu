@@ -17,6 +17,7 @@ SET(LIBRARY_OUTPUT_PATH ${PROJECT_SOURCE_DIR}/lib)
 
 set(CMAKE_VERBOSE_MAKEFILE ON)
 
+
 include(cmake/common.cmake)
 include(cmake/common_macros.cmake)
 include(cmake/glfw.cmake)
@@ -32,11 +33,12 @@ include_directories(deps/glad/include)
 include_directories(deps/GLM)
 include_directories(deps/imgui)
 include_directories(deps/easy_profiler/include)
+# include_directories(deps/easy_sources/easy_profile_core/include)
 
 # include_directories(deps/assimp/include)
 # include_directories(deps/etc2comp/EtcLib/Etc)
 # include_directories(deps/etc2comp/EtcLib/EtcCodec)
-set(CMAKE_CXX_FLAGS "-Wno-volatile")
+set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wno-volatile")
 
 
 
