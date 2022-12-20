@@ -4,7 +4,6 @@ PLAT ?= LINUX
 TYPE ?= DEBUG
 
 
-
 .PHONY: build bin rm_submod push lib clean run
 
 
@@ -37,7 +36,7 @@ ifeq (${PLAT},LINUX)
 	@cd build && cmake .. -G "Unix Makefiles"
 endif
 ifeq (${PLAT},MACOS)
-	@cd build && cmake .. -G "Unix Makefiles" -
+	@cd build && cmake .. -G "Unix Makefiles"
 endif
 
 ifeq (${TYPE},DEBUG)

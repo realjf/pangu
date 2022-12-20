@@ -58,8 +58,7 @@ Module.symvers
 Mkfile.old
 dkms.conf
 
-
 .history
-build
-bin
-lib
+/build
+/bin
+/lib
