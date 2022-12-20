@@ -15,6 +15,7 @@ SET(EXECUTABLE_OUTPUT_PATH ${PROJECT_SOURCE_DIR}/bin)
 # set library output path
 SET(LIBRARY_OUTPUT_PATH ${PROJECT_SOURCE_DIR}/lib)
 
+set(CMAKE_VERBOSE_MAKEFILE ON)
 
 include(cmake/common.cmake)
 include(cmake/common_macros.cmake)
