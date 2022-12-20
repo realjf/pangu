@@ -58,13 +58,12 @@ The Apache License, Version 2.0 (the "License");
 \defgroup profiler EasyProfiler
 */
 
-
 /** Indicates that EasyProfiler is used.
 
 \ingroup profiler
 */
-# define USING_EASY_PROFILER
+#define USING_EASY_PROFILER
 
 #endif
 
-#endif // EASY_PROFILER_IN_USE_H
+#endif  // EASY_PROFILER_IN_USE_H

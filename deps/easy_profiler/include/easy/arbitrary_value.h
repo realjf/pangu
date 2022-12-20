@@ -10,19 +10,19 @@ at your option.
 The MIT License
     Permission is hereby granted, free of charge, to any person obtaining a copy
     of this software and associated documentation files (the "Software"), to deal
-    in the Software without restriction, including without limitation the rights 
-    to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies 
-    of the Software, and to permit persons to whom the Software is furnished 
+    in the Software without restriction, including without limitation the rights
+    to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies
+    of the Software, and to permit persons to whom the Software is furnished
     to do so, subject to the following conditions:
 
-    The above copyright notice and this permission notice shall be included in all 
+    The above copyright notice and this permission notice shall be included in all
     copies or substantial portions of the Software.
 
-    THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, 
-    INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR 
-    PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE 
-    LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, 
-    TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE 
+    THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED,
+    INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR
+    PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE
+    LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT,
+    TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE
     USE OR OTHER DEALINGS IN THE SOFTWARE.
 
 
@@ -89,7 +89,7 @@ void baz(const A& c) {
 
 \ingroup profiler
 */
-# define EASY_VIN(member) ::profiler::ValueId(member)
+#define EASY_VIN(member) ::profiler::ValueId(member)
 
 /** Macro used to identify global value which would be recognized by it's name in GUI.
 
@@ -113,7 +113,7 @@ void bar(const B& b) {
 
 \ingroup profiler
 */
-# define EASY_GLOBAL_VIN ::profiler::ValueId()
+#define EASY_GLOBAL_VIN ::profiler::ValueId()
 
 /** Macro used to identify unique value.
 
@@ -132,7 +132,7 @@ void foo(const A& a) {
 
 \ingroup profiler
 */
-# define EASY_UNIQUE_VIN ::profiler::ValueId(EASY_UNIQUE_DESC(__LINE__))
+#define EASY_UNIQUE_VIN ::profiler::ValueId(EASY_UNIQUE_DESC(__LINE__))
 
 /** Macro used to store single arbitrary value.
 
@@ -146,11 +146,9 @@ void foo(const A& a) {
 
 \ingroup profiler
 */
-# define EASY_VALUE(name, value, ...)\
-    EASY_LOCAL_STATIC_PTR(const ::profiler::BaseBlockDescriptor*, EASY_UNIQUE_DESC(__LINE__), ::profiler::registerDescription(\
-        ::profiler::extract_enable_flag(__VA_ARGS__), EASY_UNIQUE_LINE_ID, EASY_COMPILETIME_NAME(name),\
-            __FILE__, __LINE__, ::profiler::BlockType::Value, ::profiler::extract_color(__VA_ARGS__), false));\
-    ::profiler::setValue(EASY_UNIQUE_DESC(__LINE__), value, ::profiler::extract_value_id(value, ## __VA_ARGS__));
+#define EASY_VALUE(name, value, ...)                                                                                                                                                                                                                                                                                             \
+    EASY_LOCAL_STATIC_PTR(const ::profiler::BaseBlockDescriptor*, EASY_UNIQUE_DESC(__LINE__), ::profiler::registerDescription(::profiler::extract_enable_flag(__VA_ARGS__), EASY_UNIQUE_LINE_ID, EASY_COMPILETIME_NAME(name), __FILE__, __LINE__, ::profiler::BlockType::Value, ::profiler::extract_color(__VA_ARGS__), false)); \
+    ::profiler::setValue(EASY_UNIQUE_DESC(__LINE__), value, ::profiler::extract_value_id(value, ##__VA_ARGS__));
 
 /** Macro used to store an array of arbitrary values.
 
@@ -164,11 +162,9 @@ void foo(const A& a) {
 
 \ingroup profiler
 */
-# define EASY_ARRAY(name, value, size, ...)\
-    EASY_LOCAL_STATIC_PTR(const ::profiler::BaseBlockDescriptor*, EASY_UNIQUE_DESC(__LINE__), ::profiler::registerDescription(\
-        ::profiler::extract_enable_flag(__VA_ARGS__), EASY_UNIQUE_LINE_ID, EASY_COMPILETIME_NAME(name),\
-            __FILE__, __LINE__, ::profiler::BlockType::Value, ::profiler::extract_color(__VA_ARGS__), false));\
-    ::profiler::setValue(EASY_UNIQUE_DESC(__LINE__), value, ::profiler::extract_value_id(value, ## __VA_ARGS__), size);
+#define EASY_ARRAY(name, value, size, ...)                                                                                                                                                                                                                                                                                       \
+    EASY_LOCAL_STATIC_PTR(const ::profiler::BaseBlockDescriptor*, EASY_UNIQUE_DESC(__LINE__), ::profiler::registerDescription(::profiler::extract_enable_flag(__VA_ARGS__), EASY_UNIQUE_LINE_ID, EASY_COMPILETIME_NAME(name), __FILE__, __LINE__, ::profiler::BlockType::Value, ::profiler::extract_color(__VA_ARGS__), false)); \
+    ::profiler::setValue(EASY_UNIQUE_DESC(__LINE__), value, ::profiler::extract_value_id(value, ##__VA_ARGS__), size);
 
 /** Macro used to store custom text.
 
@@ -184,11 +180,9 @@ Could be C-string or std::string.
 
 \ingroup profiler
 */
-# define EASY_TEXT(name, text, ...)\
-    EASY_LOCAL_STATIC_PTR(const ::profiler::BaseBlockDescriptor*, EASY_UNIQUE_DESC(__LINE__), ::profiler::registerDescription(\
-        ::profiler::extract_enable_flag(__VA_ARGS__), EASY_UNIQUE_LINE_ID, EASY_COMPILETIME_NAME(name),\
-            __FILE__, __LINE__, ::profiler::BlockType::Value, ::profiler::extract_color(__VA_ARGS__), false));\
-    ::profiler::setText(EASY_UNIQUE_DESC(__LINE__), text, ::profiler::extract_value_id(text , ## __VA_ARGS__));
+#define EASY_TEXT(name, text, ...)                                                                                                                                                                                                                                                                                               \
+    EASY_LOCAL_STATIC_PTR(const ::profiler::BaseBlockDescriptor*, EASY_UNIQUE_DESC(__LINE__), ::profiler::registerDescription(::profiler::extract_enable_flag(__VA_ARGS__), EASY_UNIQUE_LINE_ID, EASY_COMPILETIME_NAME(name), __FILE__, __LINE__, ::profiler::BlockType::Value, ::profiler::extract_color(__VA_ARGS__), false)); \
+    ::profiler::setText(EASY_UNIQUE_DESC(__LINE__), text, ::profiler::extract_value_id(text, ##__VA_ARGS__));
 
 /** Macro used to store custom text of specified length.
 
@@ -207,21 +201,17 @@ Use this for C-strings of known length (compile-time or run-time).
 
 \ingroup profiler
 */
-# define EASY_STRING(name, text, size, ...)\
-    EASY_LOCAL_STATIC_PTR(const ::profiler::BaseBlockDescriptor*, EASY_UNIQUE_DESC(__LINE__), ::profiler::registerDescription(\
-        ::profiler::extract_enable_flag(__VA_ARGS__), EASY_UNIQUE_LINE_ID, EASY_COMPILETIME_NAME(name),\
-            __FILE__, __LINE__, ::profiler::BlockType::Value, ::profiler::extract_color(__VA_ARGS__), false));\
-    ::profiler::setText(EASY_UNIQUE_DESC(__LINE__), text, ::profiler::extract_value_id(text, ## __VA_ARGS__), size);
+#define EASY_STRING(name, text, size, ...)                                                                                                                                                                                                                                                                                       \
+    EASY_LOCAL_STATIC_PTR(const ::profiler::BaseBlockDescriptor*, EASY_UNIQUE_DESC(__LINE__), ::profiler::registerDescription(::profiler::extract_enable_flag(__VA_ARGS__), EASY_UNIQUE_LINE_ID, EASY_COMPILETIME_NAME(name), __FILE__, __LINE__, ::profiler::BlockType::Value, ::profiler::extract_color(__VA_ARGS__), false)); \
+    ::profiler::setText(EASY_UNIQUE_DESC(__LINE__), text, ::profiler::extract_value_id(text, ##__VA_ARGS__), size);
 
-namespace profiler
-{
+namespace profiler {
 
     extern "C" PROFILER_API void storeValue(const BaseBlockDescriptor* _desc, DataType _type, const void* _data,
                                             uint16_t _size, bool _isArray, ValueId _vin);
 
     template <class T>
-    inline void setValue(const BaseBlockDescriptor* _desc, T _value, ValueId _vin)
-    {
+    inline void setValue(const BaseBlockDescriptor* _desc, T _value, ValueId _vin) {
         static_assert(!::std::is_pointer<T>::value,
                       "You should not pass pointers into EASY_VALUE. Pass a reference instead.");
 
@@ -235,8 +225,7 @@ namespace profiler
 
     ///< WARNING: Passing _arraySize > (MAX_BLOCK_DATA_SIZE / sizeof(T)) may cause undefined behavior!
     template <class T>
-    inline void setValue(const BaseBlockDescriptor* _desc, const T* _valueArray, ValueId _vin, uint16_t _arraySize)
-    {
+    inline void setValue(const BaseBlockDescriptor* _desc, const T* _valueArray, ValueId _vin, uint16_t _arraySize) {
         static_assert(StdToDataType<T>::data_type != DataType::TypesCount,
                       "You should use standard builtin scalar types as profiler::Value type!");
 
@@ -244,8 +233,7 @@ namespace profiler
     }
 
     template <class T, size_t N>
-    inline void setValue(const BaseBlockDescriptor* _desc, const T (&_value)[N], ValueId _vin)
-    {
+    inline void setValue(const BaseBlockDescriptor* _desc, const T (&_value)[N], ValueId _vin) {
         static_assert(StdToDataType<T>::data_type != DataType::TypesCount,
                       "You should use standard builtin scalar types as profiler::Value type!");
 
@@ -255,49 +243,44 @@ namespace profiler
     }
 
     ///< WARNING: Passing _textLength > MAX_BLOCK_DATA_SIZE may cause undefined behavior!
-    inline void setText(const BaseBlockDescriptor* _desc, const char* _text, ValueId _vin, uint16_t _textLength)
-    {
+    inline void setText(const BaseBlockDescriptor* _desc, const char* _text, ValueId _vin, uint16_t _textLength) {
         storeValue(_desc, DataType::String, _text, _textLength, true, _vin);
     }
 
     ///< WARNING: Passing _text with length > MAX_BLOCK_DATA_SIZE may cause undefined behavior!
-    inline void setText(const BaseBlockDescriptor* _desc, const char* _text, ValueId _vin)
-    {
+    inline void setText(const BaseBlockDescriptor* _desc, const char* _text, ValueId _vin) {
         storeValue(_desc, DataType::String, _text, static_cast<uint16_t>(strlen(_text) + 1), true, _vin);
     }
 
     ///< WARNING: Passing _text with length > MAX_BLOCK_DATA_SIZE may cause undefined behavior!
-    inline void setText(const BaseBlockDescriptor* _desc, const ::std::string& _text, ValueId _vin)
-    {
+    inline void setText(const BaseBlockDescriptor* _desc, const ::std::string& _text, ValueId _vin) {
         storeValue(_desc, DataType::String, _text.c_str(), static_cast<uint16_t>(_text.size() + 1), true, _vin);
     }
 
     template <size_t N>
-    inline void setText(const BaseBlockDescriptor* _desc, const char (&_text)[N], ValueId _vin)
-    {
+    inline void setText(const BaseBlockDescriptor* _desc, const char (&_text)[N], ValueId _vin) {
         static_assert(N <= MAX_BLOCK_DATA_SIZE, "Maximum arbitrary values data size exceeded.");
         storeValue(_desc, DataType::String, &_text[0], static_cast<uint16_t>(N), true, _vin);
     }
 
-} // end of namespace profiler.
+}  // end of namespace profiler.
 
 #else
 
-# if defined(__clang__)
-#  pragma clang diagnostic push
-#  pragma clang diagnostic ignored "-Wgnu-zero-variadic-macro-arguments"
-# endif
+#if defined(__clang__)
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wgnu-zero-variadic-macro-arguments"
+#endif
 
-# define EASY_GLOBAL_VIN
-# define EASY_UNIQUE_VIN
-# define EASY_VIN(member)
-# define EASY_VALUE(...)
-# define EASY_ARRAY(...)
-# define EASY_TEXT(...)
-# define EASY_STRING(...)
+#define EASY_GLOBAL_VIN
+#define EASY_UNIQUE_VIN
+#define EASY_VIN(member)
+#define EASY_VALUE(...)
+#define EASY_ARRAY(...)
+#define EASY_TEXT(...)
+#define EASY_STRING(...)
 
-namespace profiler
-{
+namespace profiler {
 
     inline void storeValue(const BaseBlockDescriptor*, DataType, const void*, uint16_t, bool, ValueId) {}
 
@@ -319,12 +302,12 @@ namespace profiler
     template <size_t N>
     inline void setText(const BaseBlockDescriptor*, const char (&)[N], ValueId) {}
 
-} // end of namespace profiler.
+}  // end of namespace profiler.
 
-# if defined(__clang__)
-#  pragma clang diagnostic pop
-# endif
+#if defined(__clang__)
+#pragma clang diagnostic pop
+#endif
 
-#endif // USING_EASY_PROFILER
+#endif  // USING_EASY_PROFILER
 
-#endif // EASY_PROFILER_ARBITRARY_VALUE_H
+#endif  // EASY_PROFILER_ARBITRARY_VALUE_H

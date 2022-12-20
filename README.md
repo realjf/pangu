@@ -10,11 +10,12 @@ Creator of universe in Chinese mythology
 - git
 - python3
 
-- [GLFW 3.3.6](https://github.com/glfw/glfw)
+- [GLFW 3.3.8](https://github.com/glfw/glfw)
 - [GLM 0.9.9.8](https://github.com/g-truc/glm)
 - STB
 - [Dear ImGui v1.89.1](https://github.com/ocornut/imgui)
-- [EasyProfiler v2.1.0](https://github.com/yse/easy_profiler)
+- [easy_profiler v2.1.0](https://github.com/yse/easy_profiler/releases/download/v2.1.0/easy_profiler-v2.1.0-linux-x64-libc-2.27.tar.gz)
+- [easy_sources v2.1.0](https://github.com/yse/easy_profiler/archive/refs/tags/v2.1.0.tar.gz)
 - Optick
 - Assimp
 - Etc2Comp

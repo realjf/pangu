@@ -47,29 +47,29 @@ The Apache License, Version 2.0 (the "License");
 
 extern "C" {
 
-    PROFILER_API profiler::block_index_t writeTreesToFile(std::atomic<int>& progress, const char* filename,
-                                                          const profiler::SerializedData& serialized_descriptors,
-                                                          const profiler::descriptors_list_t& descriptors,
-                                                          profiler::block_id_t descriptors_count,
-                                                          const profiler::thread_blocks_tree_t& trees,
-                                                          const profiler::bookmarks_t& bookmarks,
-                                                          profiler::block_getter_fn block_getter,
-                                                          profiler::timestamp_t begin_time,
-                                                          profiler::timestamp_t end_time,
-                                                          profiler::processid_t pid,
-                                                          std::ostream& log);
+PROFILER_API profiler::block_index_t writeTreesToFile(std::atomic<int>& progress, const char* filename,
+                                                      const profiler::SerializedData& serialized_descriptors,
+                                                      const profiler::descriptors_list_t& descriptors,
+                                                      profiler::block_id_t descriptors_count,
+                                                      const profiler::thread_blocks_tree_t& trees,
+                                                      const profiler::bookmarks_t& bookmarks,
+                                                      profiler::block_getter_fn block_getter,
+                                                      profiler::timestamp_t begin_time,
+                                                      profiler::timestamp_t end_time,
+                                                      profiler::processid_t pid,
+                                                      std::ostream& log);
 
-    PROFILER_API profiler::block_index_t writeTreesToStream(std::atomic<int>& progress, std::ostream& str,
-                                                            const profiler::SerializedData& serialized_descriptors,
-                                                            const profiler::descriptors_list_t& descriptors,
-                                                            profiler::block_id_t descriptors_count,
-                                                            const profiler::thread_blocks_tree_t& trees,
-                                                            const profiler::bookmarks_t& bookmarks,
-                                                            profiler::block_getter_fn block_getter,
-                                                            profiler::timestamp_t begin_time,
-                                                            profiler::timestamp_t end_time,
-                                                            profiler::processid_t pid,
-                                                            std::ostream& log);
+PROFILER_API profiler::block_index_t writeTreesToStream(std::atomic<int>& progress, std::ostream& str,
+                                                        const profiler::SerializedData& serialized_descriptors,
+                                                        const profiler::descriptors_list_t& descriptors,
+                                                        profiler::block_id_t descriptors_count,
+                                                        const profiler::thread_blocks_tree_t& trees,
+                                                        const profiler::bookmarks_t& bookmarks,
+                                                        profiler::block_getter_fn block_getter,
+                                                        profiler::timestamp_t begin_time,
+                                                        profiler::timestamp_t end_time,
+                                                        profiler::processid_t pid,
+                                                        std::ostream& log);
 }
 
 inline profiler::block_index_t writeTreesToFile(const char* filename,
@@ -82,8 +82,7 @@ inline profiler::block_index_t writeTreesToFile(const char* filename,
                                                 profiler::timestamp_t begin_time,
                                                 profiler::timestamp_t end_time,
                                                 profiler::processid_t pid,
-                                                std::ostream& log)
-{
+                                                std::ostream& log) {
     std::atomic<int> progress(0);
     return writeTreesToFile(progress, filename, serialized_descriptors, descriptors, descriptors_count, trees,
                             bookmarks, std::move(block_getter), begin_time, end_time, pid, log);
@@ -99,11 +98,10 @@ inline profiler::block_index_t writeTreesToStream(std::ostream& str,
                                                   profiler::timestamp_t begin_time,
                                                   profiler::timestamp_t end_time,
                                                   profiler::processid_t pid,
-                                                  std::ostream& log)
-{
+                                                  std::ostream& log) {
     std::atomic<int> progress(0);
     return writeTreesToStream(progress, str, serialized_descriptors, descriptors, descriptors_count, trees,
                               bookmarks, std::move(block_getter), begin_time, end_time, pid, log);
 }
 
-#endif //EASY_PROFILER_WRITER_H
+#endif  // EASY_PROFILER_WRITER_H
