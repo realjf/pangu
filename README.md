@@ -16,7 +16,7 @@ Creator of universe in Chinese mythology
 - [Dear ImGui v1.89.1](https://github.com/ocornut/imgui)
 - [easy_profiler v2.1.0](https://github.com/yse/easy_profiler/releases/download/v2.1.0/easy_profiler-v2.1.0-linux-x64-libc-2.27.tar.gz)
 - [easy_sources v2.1.0](https://github.com/yse/easy_profiler/archive/refs/tags/v2.1.0.tar.gz)
-- Optick
+- [Optick 1.4.0.0](https://github.com/bombomby/optick)
 - Assimp
 - Etc2Comp
 - Taskflow
