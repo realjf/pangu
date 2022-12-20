@@ -20,10 +20,12 @@ include(cmake/glfw.cmake)
 include(cmake/glad.cmake)
 include(cmake/glm.cmake)
 
+
+include_directories(deps)
 include_directories(deps/GLFW/include)
 include_directories(deps/glad/include)
 include_directories(deps/GLM)
-include_directories(deps/stb)
+
 
 # include_directories(deps/assimp/include)
 # include_directories(deps/etc2comp/EtcLib/Etc)

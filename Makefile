@@ -60,6 +60,6 @@ push:
 	@git add -A && git commit -m "update" && git push origin master
 
 pull:
-	@git pull
-	@git pull --recurse-submodules
-	@git submodule update --init
+	@-git pull
+# @-git pull --recurse-submodules
+	@-git submodule update --init
