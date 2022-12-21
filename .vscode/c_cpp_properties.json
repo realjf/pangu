@@ -11,7 +11,10 @@
                 "${workspaceFolder}/deps",
                 "${workspaceFolder}/deps/imgui",
                 "${workspaceFolder}/deps/easy_profiler/include",
-                "${workspaceFolder}/deps/optick/src"
+                "${workspaceFolder}/deps/optick/src",
+                "${workspaceFolder}/deps/assimp/include",
+                "${workspaceFolder}/deps/etc2comp/EtcLib/Etc",
+                "${workspaceFolder}/deps/etc2comp/EtcLib/EtcCodec"
             ],
             "defines": [ ],
             "compilerPath": "/usr/bin/gcc",

@@ -64,3 +64,4 @@ dkms.conf
 /lib
 *.prof
 *.opt
+*.ktx

@@ -13,11 +13,11 @@ Creator of universe in Chinese mythology
 - [GLFW 3.3.8](https://github.com/glfw/glfw)
 - [GLM 0.9.9.8](https://github.com/g-truc/glm)
 - STB
-- [Dear ImGui v1.89.1](https://github.com/ocornut/imgui)
+- [Dear ImGui v1.89.1](https://github.com/ocornut/imgui.git)
 - [easy_profiler v2.1.0](https://github.com/yse/easy_profiler/releases/download/v2.1.0/easy_profiler-v2.1.0-linux-x64-libc-2.27.tar.gz)
 - [easy_sources v2.1.0](https://github.com/yse/easy_profiler/archive/refs/tags/v2.1.0.tar.gz)
-- [Optick 1.4.0.0](https://github.com/bombomby/optick)
-- Assimp
+- [Optick 1.4.0.0](https://github.com/bombomby/optick.git)
+- [Assimp v5.2.5](https://github.com/assimp/assimp.git)
 - Etc2Comp
 - Taskflow
 - MeshOptimizer

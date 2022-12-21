@@ -23,3 +23,11 @@
 	url = https://github.com/bombomby/optick.git
 	update = checkout
 	branch = 1.4.0.0
+[submodule "deps/assimp"]
+	path = deps/assimp
+	url = https://github.com/assimp/assimp.git
+	update = checkout
+	branch = v5.2.5
+[submodule "deps/etc2comp"]
+	path = deps/etc2comp
+	url = https://github.com/google/etc2comp

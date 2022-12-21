@@ -24,10 +24,15 @@ include(cmake/glfw.cmake)
 include(cmake/glad.cmake)
 include(cmake/glm.cmake)
 include(cmake/imgui.cmake)
-include(cmake/easy_profiler.cmake)
+
+if (BUILD_WITH_EASY_PROFILER)
+    include(cmake/easy_profiler.cmake)
+endif()
 if (BUILD_WITH_OPTICK)
     include(cmake/optick.cmake)
 endif()
+include(cmake/assimp.cmake)
+include(cmake/etc2comp.cmake)
 
 
 include_directories(deps)
@@ -37,6 +42,9 @@ include_directories(deps/GLM)
 include_directories(deps/imgui)
 include_directories(deps/easy_profiler/include)
 include_directories(deps/optick/src)
+include_directories(deps/assimp/include)
+include_directories(deps/etc2comp/EtcLib/Etc)
+include_directories(deps/etc2comp/EtcLib/EtcCodec)
 
 
 # include_directories(deps/assimp/include)
@@ -48,6 +56,17 @@ set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wno-volatile")
 
 SETUP_APP(${PROJECT_NAME} ${PANGU_VERSION})
 
-# target_link_directories(${PROJECT_NAME} ${LIBRARY_OUTPUT_PATH})
-target_link_libraries(${PROJECT_NAME} glad glfw glm easy_profiler OptickCore)
+target_sources(${PROJECT_NAME} PUBLIC ${PROJECT_SOURCE_DIR}/deps/etc2comp/EtcTool/EtcFile.cpp)
+target_sources(${PROJECT_NAME} PUBLIC ${PROJECT_SOURCE_DIR}/deps/etc2comp/EtcTool/EtcFileHeader.cpp)
+
+
+if (BUILD_WITH_OPTICK)
+    target_link_libraries(${PROJECT_NAME} OptickCore)
+endif()
+
+if (BUILD_WITH_EASY_PROFILER)
+    target_link_libraries(${PROJECT_NAME} easy_profiler)
+endif()
+
+target_link_libraries(${PROJECT_NAME} glad glfw glm assimp EtcLib)
 

@@ -8,5 +8,7 @@
 #include <imguii/imguii.hpp>
 #include <easyprofiler/easyprofiler.hpp>
 #include <optickk/optickk.hpp>
+#include <assimpp/assimpp.hpp>
+#include <etc2compp/etc2compp.hpp>
 
 #endif /* _MAIN_HPP_ */
