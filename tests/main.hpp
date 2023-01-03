@@ -10,5 +10,7 @@
 #include <optickk/optickk.hpp>
 #include <assimpp/assimpp.hpp>
 #include <etc2compp/etc2compp.hpp>
+#include <taskfloww/taskfloww.hpp>
+#include <meshopt/meshopt.hpp>
 
 #endif /* _MAIN_HPP_ */

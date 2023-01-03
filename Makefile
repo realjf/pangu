@@ -3,8 +3,10 @@
 PLAT ?= LINUX
 TYPE ?= DEBUG
 
+TEST ?= OFF
 
-.PHONY: build bin rm_submod push lib clean run
+
+.PHONY: build bin rm_submod push lib clean run test pull
 
 
 
@@ -30,13 +32,13 @@ build:
 	@rm -rf build
 	@mkdir -p build
 ifeq (${PLAT},WINDOWS)
-	@cd build && cmake .. -G "Visual Studio 16 2019" -A x64
+	@cd build && cmake .. -G "Visual Studio 16 2019" -A x64 -DTEST_APP=${TEST}
 endif
 ifeq (${PLAT},LINUX)
-	@cd build && cmake .. -G "Unix Makefiles" -D CMAKE_C_COMPILER=gcc-11 -D CMAKE_CXX_COMPILER=g++-11
+	@cd build && cmake .. -G "Unix Makefiles" -D CMAKE_C_COMPILER=gcc-11 -D CMAKE_CXX_COMPILER=g++-11  -DTEST_APP=${TEST}
 endif
 ifeq (${PLAT},MACOS)
-	@cd build && cmake .. -G "Unix Makefiles"
+	@cd build && cmake .. -G "Unix Makefiles"  -DTEST_APP=${TEST}
 endif
 
 ifeq (${TYPE},DEBUG)
@@ -50,10 +52,12 @@ ifeq (${TYPE},RELDEBINFO)
 endif
 
 
-run:
+run: build
 	@./bin/pangu
 # or run: MESA_GL_VERSION_OVERRIDE=4.6 ./bin/pangu
 
+test: build
+	@./bin/pangu_test
 
 push:
 	@git add -A && git commit -m "update" && git push origin master

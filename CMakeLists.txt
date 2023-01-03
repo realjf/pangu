@@ -1,6 +1,10 @@
 cmake_minimum_required(VERSION 3.12)
 
-set(PROJECT_NAME pangu)
+if (TEST_APP)
+    set(PROJECT_NAME pangu_test)
+else()
+    set(PROJECT_NAME pangu)
+endif()
 set(PANGU_MAJOR_VERSION 0)
 set(PANGU_MINOR_VERSION 0)
 set(PANGU_MICRO_VERSION 1)
@@ -33,8 +37,11 @@ if (BUILD_WITH_OPTICK)
 endif()
 include(cmake/assimp.cmake)
 include(cmake/etc2comp.cmake)
+include(cmake/taskflow.cmake)
+include(cmake/meshoptimizer.cmake)
 
 
+include_directories(.)
 include_directories(deps)
 include_directories(deps/GLFW/include)
 include_directories(deps/glad/include)
@@ -45,6 +52,8 @@ include_directories(deps/optick/src)
 include_directories(deps/assimp/include)
 include_directories(deps/etc2comp/EtcLib/Etc)
 include_directories(deps/etc2comp/EtcLib/EtcCodec)
+include_directories(deps/taskflow)
+include_directories(deps/meshoptimizer/src)
 
 
 # include_directories(deps/assimp/include)
@@ -54,7 +63,12 @@ set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wno-volatile")
 
 
 
-SETUP_APP(${PROJECT_NAME} ${PANGU_VERSION})
+if (TEST_APP)
+    SETUP_TEST(${PROJECT_NAME} ${PANGU_VERSION})
+else()
+    SETUP_APP(${PROJECT_NAME} ${PANGU_VERSION})
+endif()
+
 
 target_sources(${PROJECT_NAME} PUBLIC ${PROJECT_SOURCE_DIR}/deps/etc2comp/EtcTool/EtcFile.cpp)
 target_sources(${PROJECT_NAME} PUBLIC ${PROJECT_SOURCE_DIR}/deps/etc2comp/EtcTool/EtcFileHeader.cpp)
@@ -68,5 +82,5 @@ if (BUILD_WITH_EASY_PROFILER)
     target_link_libraries(${PROJECT_NAME} easy_profiler)
 endif()
 
-target_link_libraries(${PROJECT_NAME} glad glfw glm assimp EtcLib)
+target_link_libraries(${PROJECT_NAME} glad glfw glm assimp EtcLib meshoptimizer)
 

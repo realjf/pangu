@@ -6,6 +6,7 @@
                 "${default}",
                 "${workspaceFolder}/deps/GLFW/include",
                 "${workspaceFolder}/src/**",
+                "${workspaceFolder}/tests/**",
                 "${workspaceFolder}/deps/glad/include",
                 "${workspaceFolder}/deps/GLM",
                 "${workspaceFolder}/deps",
@@ -14,7 +15,9 @@
                 "${workspaceFolder}/deps/optick/src",
                 "${workspaceFolder}/deps/assimp/include",
                 "${workspaceFolder}/deps/etc2comp/EtcLib/Etc",
-                "${workspaceFolder}/deps/etc2comp/EtcLib/EtcCodec"
+                "${workspaceFolder}/deps/etc2comp/EtcLib/EtcCodec",
+                "${workspaceFolder}/deps/taskflow",
+                "${workspaceFolder}/deps/meshoptimizer/src"
             ],
             "defines": [ ],
             "compilerPath": "/usr/bin/gcc",

@@ -65,3 +65,4 @@ dkms.conf
 *.prof
 *.opt
 *.ktx
+*.dot

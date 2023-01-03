@@ -31,3 +31,13 @@
 [submodule "deps/etc2comp"]
 	path = deps/etc2comp
 	url = https://github.com/google/etc2comp
+[submodule "deps/taskflow"]
+	path = deps/taskflow
+	url = https://github.com/taskflow/taskflow.git
+	update = checkout
+	branch = v3.4.0
+[submodule "deps/meshoptimizer"]
+	path = deps/meshoptimizer
+	url = https://github.com/zeux/meshoptimizer
+	update = checkout
+	branch = v0.18
