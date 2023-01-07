@@ -19,8 +19,8 @@ Creator of universe in Chinese mythology
 - [Optick 1.4.0.0](https://github.com/bombomby/optick.git)
 - [Assimp v5.2.5](https://github.com/assimp/assimp.git)
 - Etc2Comp
-- Taskflow
-- MeshOptimizer
+- [Taskflow v3.4.0](https://github.com/taskflow/taskflow.git)
+- [MeshOptimizer v0.18](https://github.com/zeux/meshoptimizer)
 
 
 **`windows`**

@@ -18,26 +18,34 @@
 	url = https://github.com/ocornut/imgui.git
 	update = checkout
 	branch = v1.89.1
+	ignore = dirty
 [submodule "deps/optick"]
 	path = deps/optick
 	url = https://github.com/bombomby/optick.git
 	update = checkout
 	branch = 1.4.0.0
+	ignore = dirty
 [submodule "deps/assimp"]
 	path = deps/assimp
 	url = https://github.com/assimp/assimp.git
 	update = checkout
 	branch = v5.2.5
+	ignore = dirty
 [submodule "deps/etc2comp"]
 	path = deps/etc2comp
-	url = https://github.com/google/etc2comp
+	url = https://github.com/google/etc2comp.git
+	update = checkout
+	branch = master
+	ignore = dirty
 [submodule "deps/taskflow"]
 	path = deps/taskflow
 	url = https://github.com/taskflow/taskflow.git
 	update = checkout
 	branch = v3.4.0
+	ignore = dirty
 [submodule "deps/meshoptimizer"]
 	path = deps/meshoptimizer
 	url = https://github.com/zeux/meshoptimizer
 	update = checkout
 	branch = v0.18
+	ignore = dirty
