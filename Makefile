@@ -63,7 +63,7 @@ push:
 	@git add -A && git commit -m "update" && git push origin master
 
 pull:
-	@-git pull
+	@git pull
 # @-git pull --recurse-submodules
-	@-git submodule sync --recursive
-	@-git submodule update --init --recursive
+	@git submodule update --init --checkout
+	@git submodule sync
