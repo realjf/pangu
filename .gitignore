@@ -58,11 +58,17 @@ Module.symvers
 Mkfile.old
 dkms.conf
 
-.history
-/build
-/bin
-/lib
 *.prof
 *.opt
 *.ktx
 *.dot
+
+.history
+/bin
+/build
+/build_deps
+/lib
+/build_test
+/bin_test
+core
+*.core

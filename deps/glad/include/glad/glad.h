@@ -7,7 +7,7 @@
     APIs: gl=4.6
     Profile: compatibility
     Extensions:
-        
+
     Loader: True
     Local files: False
     Omit khrplatform: False
@@ -20,8 +20,8 @@
 */
 
 
-#ifndef __glad_h_
-#define __glad_h_
+#ifndef _GLAD_H_
+#define _GLAD_H_
 
 #ifdef __gl_h_
 #error OpenGL header already included, remove this include, glad already provides it
@@ -5166,4 +5166,4 @@ GLAPI PFNGLPOLYGONOFFSETCLAMPPROC glad_glPolygonOffsetClamp;
 }
 #endif
 
-#endif
+#endif /* _GLAD_H_ */

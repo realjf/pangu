@@ -7,7 +7,7 @@ Creator of universe in Chinese mythology
 ### Development
 
 - c++20
-- opengl 4.6
+- [opengl 4.6](https://glad.dav1d.de/)
 - [vulkan >1.2](https://www.lunarg.com/vulkan-sdk/)
 - cmake > 3.15
 - git
