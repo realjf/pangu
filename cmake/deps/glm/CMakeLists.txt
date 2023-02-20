@@ -5,8 +5,7 @@ set(LIBRARY_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/../../lib)
 set(LIBRARY_OUTPUT_PATH ${CMAKE_BINARY_DIR}/../../lib)
 
 set(BUILD_SHARED_LIBS ON)
-
-# set(BUILD_STATIC_LIBS ON)
-add_subdirectory(${CMAKE_BINARY_DIR}/../../deps/GLM ${BUILD_OUTPUT_PATH})
+set(BUILD_STATIC_LIBS ON)
+add_subdirectory(${CMAKE_BINARY_DIR}/../../deps/GLM ${CMAKE_BINARY_DIR}/build)
 
 set_property(TARGET glm PROPERTY FOLDER "ThirdPartyLibraries")

@@ -14,15 +14,15 @@ DepNameTmp=
 
 buildDeps = \
 	printf "%-8s %s %s %s\n" "[BUILD]" $2 "[TO]" $1; \
-	if [ $(CLEAN) = "ON" ]; then \
+	if [ $4 = "ON" ]; then \
 		rm -rf $1; \
 		mkdir -p $1; \
 	fi; \
-	if [ $(PLAT) = "WINDOWS" ]; then \
+	if [ $3 = "WINDOWS" ]; then \
 		cd $1 && cmake $2 -G "Visual Studio 16 2019" -A x64 -D BUILD_OUTPUT_PATH=$1; \
-	elif [ $(PLAT) = "LINUX" ]; then \
+	elif [ $3 = "LINUX" ]; then \
 		cd $1 && cmake $2 -G "Unix Makefiles" -D CMAKE_C_COMPILER=gcc-11 -D CMAKE_CXX_COMPILER=g++-11 -D BUILD_OUTPUT_PATH=$1; \
-	elif [ $(PLAT) = "MACOS" ]; then \
+	elif [ $3 = "MACOS" ]; then \
 		cd $1 && cmake $2 -G "Unix Makefiles" -D BUILD_OUTPUT_PATH=$1; \
 	fi; \
 	cd $(ROOT_PATH)/$1 && cmake --build . --config Release; \
@@ -40,7 +40,7 @@ deps:
 	@printf "total dependencies: %s\n" $(words $(DEPS))
 	@printf "rootpath: %s\n"$(ROOT_PATH)
 	@$(foreach dir,$(DEPS),$(call pp,$(dir)))
-	@$(foreach dir,$(DEPS),$(call buildDeps,$(DEPS_BUILD_DIR)/$(basename $(notdir $(patsubst %/,%,$(dir $(dir))).txt)),../../$(dir $(dir))))
+	@$(foreach dir,$(DEPS),$(call buildDeps,$(DEPS_BUILD_DIR)/$(basename $(notdir $(patsubst %/,%,$(dir $(dir))).txt)),../../$(dir $(dir)), $(PLAT), $(CLEAN)))
 	@printf "builded dependencies: %s\n" $(words $(DEPS))
 
 
@@ -141,7 +141,10 @@ rm_submod:
 clean:
 	@rm -rf bin
 	@rm -rf build
+	@rm -rf build_test
 	@rm -rf lib
+	@rm -rf bin_test
+	@rm -rf build_deps
 
 
 

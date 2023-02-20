@@ -17,15 +17,12 @@ set(EASY_PROFILER_NO_SAMPLES ON CACHE BOOL "")
 set(BUILD_SHARED_LIBS ON)
 set(BUILD_STATIC_LIBS ON)
 
-include_directories(${PROJECT_ROOT_PATH}deps/easy_profiler/include)
 add_subdirectory(${CMAKE_BINARY_DIR}/../../deps/easy_sources ${CMAKE_BINARY_DIR}/build)
-
-set_directory_properties(${CMAKE_BINARY_DIR}/../../deps/easy_sources)
 
 message("Enabled EasyProfiler")
 add_definitions(-DBUILD_WITH_EASY_PROFILER=1)
+add_definitions(-DCMAKE_BUILD_TYPE=Release)
 include_directories(${PROJECT_ROOT_PATH}deps/easy_profiler/include)
-
 set_property(TARGET easy_profiler PROPERTY FOLDER "ThirdPartyLibraries")
 set_property(TARGET profiler_converter PROPERTY FOLDER "ThirdPartyLibraries")
 

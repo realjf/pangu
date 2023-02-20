@@ -7,18 +7,16 @@ macro(SETUP_GROUPS src_files)
     endforeach()
 endmacro()
 
-
 macro(SET_OUTPUT_NAMES projname)
-	set_target_properties(${projname} PROPERTIES OUTPUT_NAME_DEBUG ${projname}_Debug)
-	set_target_properties(${projname} PROPERTIES OUTPUT_NAME_RELEASE ${projname}_Release)
-	set_target_properties(${projname} PROPERTIES OUTPUT_NAME_RELWITHDEBINFO ${projname}_ReleaseDebInfo)
+    set_target_properties(${projname} PROPERTIES OUTPUT_NAME_DEBUG ${projname}_Debug)
+    set_target_properties(${projname} PROPERTIES OUTPUT_NAME_RELEASE ${projname}_Release)
+    set_target_properties(${projname} PROPERTIES OUTPUT_NAME_RELWITHDEBINFO ${projname}_ReleaseDebInfo)
 
-	# On Linux/macOS the binaries go to <root>/bin folder
-	if (UNIX)
-		set_target_properties(${projname} PROPERTIES RUNTIME_OUTPUT_DIRECTORY "${CMAKE_SOURCE_DIR}/bin")
-	endif()
+    # On Linux/macOS the binaries go to <root>/bin folder
+    if(UNIX)
+        set_target_properties(${projname} PROPERTIES RUNTIME_OUTPUT_DIRECTORY "${CMAKE_SOURCE_DIR}/bin")
+    endif()
 endmacro()
-
 
 macro(SETUP_APP projname version)
     set(PROJ_NAME ${projname})
@@ -29,6 +27,7 @@ macro(SETUP_APP projname version)
 
     include_directories(src)
     add_executable(${PROJ_NAME} ${SRC_FILES} ${HEADER_FILES} ${DEPS_HEADER_FILES} ${DEPS_SRC_FILES})
+
     if(MSVC)
         add_definitions(-D_CONSOLE)
     endif()
@@ -45,7 +44,6 @@ macro(SETUP_APP projname version)
         set_property(TARGET ${PROJ_NAME} PROPERTY VS_DEBUGGER_WORKING_DIRECTORY "${CMAKE_SOURCE_DIR}")
     endif()
 endmacro()
-
 
 macro(SETUP_TEST projname version)
     set(PROJ_NAME ${projname})
@@ -56,6 +54,7 @@ macro(SETUP_TEST projname version)
 
     include_directories(tests)
     add_executable(${PROJ_NAME} ${SRC_FILES} ${HEADER_FILES} ${DEPS_HEADER_FILES} ${DEPS_SRC_FILES})
+
     if(MSVC)
         add_definitions(-D_CONSOLE)
     endif()
@@ -72,3 +71,13 @@ macro(SETUP_TEST projname version)
         set_property(TARGET ${PROJ_NAME} PROPERTY VS_DEBUGGER_WORKING_DIRECTORY "${CMAKE_SOURCE_DIR}")
     endif()
 endmacro()
+
+# Copy files from source directory to destination directory, substituting any
+# variables.  Create destination directory if it does not exist.
+macro(COPY_DIR srcDir destDir)
+    message(STATUS "Configuring directory ${destDir}")
+    make_directory(${destDir})
+
+    execute_process(COMMAND ${CMAKE_COMMAND} -E copy_directory ${srcDir} ${destDir})
+endmacro(COPY_DIR)
+
