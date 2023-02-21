@@ -1,7 +1,4 @@
-#ifndef _MAIN_HPP_
-#define _MAIN_HPP_
-#ifndef _MAIN_HPP_
-#define _MAIN_HPP_
+
 #ifndef _MAIN_HPP_
 #define _MAIN_HPP_
 
@@ -16,11 +13,5 @@
 #include <etc2compp/etc2compp.hpp>
 #include <taskfloww/taskfloww.hpp>
 #include <meshopt/meshopt.hpp>
-
-#endif /* _MAIN_HPP_ */
-
-
-#endif /* _MAIN_HPP_ */
-
 
 #endif /* _MAIN_HPP_ */
